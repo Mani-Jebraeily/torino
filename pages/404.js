@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function NotFound() {
     return (
-        <div className='flex items-center justify-center '>
+        <div className='flex items-center justify-center'>
             <div className='w-[80vw] flex justify-between '>
                 <div className='w-[50%] flex flex-col gap-5 justify-center items-center' >
                     <h1 className='font-semibold text-4xl '>اتصال با سرور برقرار نیست!</h1>
