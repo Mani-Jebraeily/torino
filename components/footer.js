@@ -41,7 +41,7 @@ function Footer() {
 
                         </div>
 
-                        <div className='*:cursor-pointer flex gap-10 h-[50%] flex-row-reverse items-center start '>
+                        <div className=' *:min -w-10 *:w-[6vw] *:cursor-pointer flex gap-10 h-[50%] flex-row-reverse items-center start '>
                             <Image src={logo1} />
                             <Image src={logo2} />
                             <Image src={barcode1} />
