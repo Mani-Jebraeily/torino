@@ -15,15 +15,15 @@ function Footer() {
             <div className='flex items-center justify-center blue-700 '>
                 <div className='pb-5 pt-5 w-[80vw] flex justify-between  border-t absolute bottom-0 border-[#00000033]'>
                     <div className='w-[20%] flex  gap-5 justify-between items-center ' >
-                        <ul className='flex flex-col gap-1 *:cursor-pointer  *:font-normal text-[18px]   text-[#282828]'>
-                            <li className='font-semibold cursor-default text-2xl text-[#282828] mb-5'>تورینو</li>
+                        <ul className=' min-w-fit flex flex-col gap-1 *:cursor-pointer  *:font-normal text-[18px]   text-[#282828]'>
+                            <li className=' font-semibold cursor-default text-2xl text-[#282828] mb-5'>تورینو</li>
                             <li>درباره ما</li>
                             <li>تماس با ما</li>
                             <li>چرا تورینو</li>
                             <li>بیمه مسافرتی</li>
                         </ul>
 
-                        <ul className='flex flex-col gap-1 *:cursor-pointer  *:font-normal text-[18px]  text-[#282828]'>
+                        <ul className=' min-w-fit flex flex-col gap-1 *:cursor-pointer  *:font-normal text-[18px]  text-[#282828]'>
                             <li className='font-semibold cursor-default text-2xl text-[#282828] mb-5'>خدمات مشتریان</li>
                             <li>پشتیبانی آنلاین</li>
                             <li>راهنمای خرید</li>

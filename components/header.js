@@ -2,10 +2,19 @@ import React from 'react'
 import Image from 'next/image'
 import logo from '@/public/logo.svg'
 import btn from '@/public/btnsignin.svg'
+import ModalSignIn from '@/components/modules/modalSignIn'
+import { useState } from 'react'
 
 function Header() {
+    const [showSignIn, setShowSignIn] = useState(false)
+
+    console.log("mnnnnn")
+
     return (
         <>
+            {showSignIn && <ModalSignIn setShowSignIn={setShowSignIn} />}
+            
+
             <div className='flex items-center justify-center'>
                 <div className='w-[80vw] flex justify-between'>
                     <div className='flex gap-20'>
@@ -17,7 +26,8 @@ function Header() {
                             <li> تماس با ما</li>
                         </ul>
                     </div>
-                    <button className='cursor-pointer'><Image src={btn} /></button>
+                    <button className='cursor-pointer'>
+                        <Image src={btn} /></button>
                 </div>
 
             </div>
