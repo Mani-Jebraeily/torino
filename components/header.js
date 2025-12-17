@@ -13,21 +13,23 @@ function Header() {
     return (
         <>
             {showSignIn && <ModalSignIn setShowSignIn={setShowSignIn} />}
-            
 
-            <div className='flex items-center justify-center'>
-                <div className='w-[80vw] flex justify-between'>
-                    <div className='flex gap-20'>
+
+            <div className='pb-3  border-b border-[#00000029] flex items-center justify-center'>
+                <div className=' w-[80vw] flex justify-between'>
                         <Image src={logo} />
-                        <ul className='flex items-center gap-15 *:cursor-pointer *:text-[16px] *:font-normal *: text-[#282828]'>
+
+                    <div className='w-[60%]  flex justify-center  gap-2'>
+                        <ul className='*:min-w -fit  flex  items-center gap-5 *:cursor-pointer *:text-[16px] *:font-normal *: text-[#282828]'>
                             <li className='text-[#28A745]'>صفحه اصلی</li>
                             <li>خدمات گردشگری</li>
                             <li>درباره ما</li>
                             <li> تماس با ما</li>
                         </ul>
                     </div>
-                    <button className='cursor-pointer'>
-                        <Image src={btn} /></button>
+                    <button className=' cursor-pointer'>
+                        <Image src={btn} />
+                    </button>
                 </div>
 
             </div>
