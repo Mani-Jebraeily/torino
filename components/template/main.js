@@ -1,14 +1,13 @@
 import React from 'react'
-import Image from 'next/image'
-import cover from'@/public/main-cover.png'
+import Cover from '../cover'
+
 
 function Main() {
   return (
     <>
-    <Image src={cover}>
-
-    </Image>
+    <Cover/>
     </>
+
   )
 }
 
