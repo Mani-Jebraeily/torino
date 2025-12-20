@@ -8,7 +8,6 @@ import { useState } from 'react'
 function Header() {
     const [showSignIn, setShowSignIn] = useState(false)
 
-    console.log("mnnnnn1")
 
     return (
         <>

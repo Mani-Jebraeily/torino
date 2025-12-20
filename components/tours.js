@@ -9,7 +9,7 @@ function Tours() {
         axios.get(`${api}/tour`)
         .then((res)=>setTour(res.data))
     },[])
-    console.log(tours)
+
 
     return (
         <>
@@ -18,3 +18,4 @@ function Tours() {
 }
 
 export default Tours
+
