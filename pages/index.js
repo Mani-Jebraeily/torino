@@ -6,7 +6,7 @@ export const TourContext = createContext()
 function Index({ tours }) {
   return (
     <>
-      <TourContext.Provider value={tours}>
+      <TourContext.Provider value={{tours}}>
         <Main />
       </TourContext.Provider>
     </>
