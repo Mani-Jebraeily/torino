@@ -3,6 +3,7 @@ import Cover from '../cover'
 
 
 function Main() {
+    
   return (
     <>
     <Cover/>
