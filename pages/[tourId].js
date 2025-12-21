@@ -6,7 +6,12 @@ function TourId({tour}) {
     console.log(tourId)
     console.log(tour)
   return (
-    <div>TourId</div>
+    <>
+    <div className='bg-gray-100 w-full h-220' >
+f
+
+    </div>
+    </>
   )
 }
 

@@ -17,7 +17,7 @@ function Tours() {
                     {/* <div className="w-[80vw] bg-amber-600 grid grid-cols-4 gap-5 mx-auto  font-normal text-3xl text-black"> */}
                     {/* <div className='w-[80vw] bg-amber-600 flex flex-wrap justify-between gap-5 font-normal  text-3xl text-[#000000]'> */}
                     {tours.map((tour) => (
-                        <div key={tour.id} className='box-content size-68.5 rounded-xl border border-[#D9D9D9]'>
+                        <div key={tour.id} className='box-content size-68.5 rounded-xl border border-[#D9D9D9] shadow-lg shadow-slate-300'>
                             <img src={tour.image} alt='tour image' />
                             <h2 className=' font-medium text-2xl  p-1'>{tour.title}</h2>
                             <div className=' h-7 overflow-hidden font-normal text-[15px] text-[#282828B2] p-2 '>
