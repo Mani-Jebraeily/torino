@@ -1,17 +1,8 @@
 import React from 'react'
-import { useRouter } from 'next/router'
+import TourDetails from '@/components/tourDetails'
 function TourId({tour}) {
-    const router=useRouter()
-    const {tourId}=router.query
-    console.log(tourId)
-    console.log(tour)
   return (
-    <>
-    <div className='bg-gray-100 w-full h-220' >
-f
-
-    </div>
-    </>
+    <TourDetails tour={tour}/>
   )
 }
 
