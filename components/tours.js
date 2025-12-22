@@ -4,10 +4,11 @@ import Image from 'next/image'
 import { TourContext } from '@/pages'
 import Link from 'next/link'
 
+export const formatFaNumber = (value) => Number(value).toLocaleString('en-US').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d])
+
 function Tours() {
     const { tours } = useContext(TourContext)
 
-    const formatFaNumber = (value) => Number(value).toLocaleString('en-US').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d])
 
     return (
         <>
