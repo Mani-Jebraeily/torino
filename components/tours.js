@@ -12,11 +12,9 @@ function Tours() {
 
     return (
         <>
-            <div className='w-full flex flex-col justify-center items-center'>
-                <h1 className='w-[80vw] font-normal text-[32px]'>همه تور ها</h1>
-                <div className="w-[80vw] mx-auto bg-amber-6 00 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                    {/* <div className="w-[80vw] bg-amber-600 grid grid-cols-4 gap-5 mx-auto  font-normal text-3xl text-black"> */}
-                    {/* <div className='w-[80vw] bg-amber-600 flex flex-wrap justify-between gap-5 font-normal  text-3xl text-[#000000]'> */}
+            <div className='w-full flex flex-col justify-center items-center mt-25'>
+                <h1 className='w-[80vw] font-normal text-5xl  mb-5'>همه تور ها</h1>
+                <div className="w-[80vw] mx-auto  bg-amber-6 00 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-15">
                     {tours.map((tour) => (
                         <div key={tour.id} className='box-content size-68.5 rounded-xl border border-[#D9D9D9] shadow-lg shadow-slate-300'>
                             <img src={tour.image} alt='tour image' />
@@ -25,7 +23,6 @@ function Tours() {
                                 {tour.options.map((option) => (
                                     <>{option}| </>
                                 ))}</div>
-
                             <div className='flex justify-between items-center p-2  h-10 w-full border-t border-[#D9D9D9]'>
                                 <button className=' w-16.5 h-6.5 bg-[#28A745] rounded-sm font-normal text-[15px] text-[#FFFFFF] cursor-pointer' ><Link href={`/${tour.id}`}>رزرو</Link></button>
                                 <div className='flex items-center gap-2 p-2'>
