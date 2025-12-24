@@ -1,11 +1,15 @@
 import Image from 'next/image'
 import React from 'react'
 import person from "@/public/person.svg"
+import pic1 from "@/public/1.png"
+import pic2 from "@/public/2.png"
+import pic3 from "@/public/3.png"
+import pic4 from "@/public/4.png"
 
 function Information() {
     return (
         <>
-            <div className='flex justify-center mt-30 mb-40'>
+            <div className='flex flex-col items-center justify-center mt-30 mb-40  '>
                 <div className='w-[80vw] flex h-62.5 border border-[#00000040] rounded-[10px]'>
                     <div className='w-[75%] h-62.5 bg-[#28A745] rounded-[10px] relative flex box-content'>
                         <Image src={person} className='absolute bottom-0 left-0' />
@@ -17,15 +21,28 @@ function Information() {
                     <div className='w-[25%] h-62.5 flex flex-col justify-center items-center'>
                         <span className='flex justify-center items-center'>
                             <p className='font-bold text-[26px]  '>۰۲۱-۱۸۴۰</p>
-                            <img src='/call.svg' className='size-[24px]'/>
+                            <img src='/call.svg' className='size-[24px]' />
                         </span>
-
                         <button className='w-43 h-10 bg-[#10411B] rounded-[10px] text-[#FFFFFF] cursor-pointer'>
                             اطلاعات بیشتر
                         </button>
-
                     </div>
+                </div>
 
+                <div className='flex  items- center w-[80vw] justify-around  h-140 mt-20'>
+                    <div className='w-fit h-fit bg-ambe r-300'>
+                        <h2 className='font-extrabold text-[40px] pt-5 pb-5'>چرا <span className='text-[#28A745]'>تورینو</span>؟</h2>
+                        <h4 className='font-medium text-2xl  pb-5'>تور طبیعت گردی و تاریخی</h4>
+                        <p className='font-normal text-[20px] w-200 leading-10'>
+                            اگر دوست داشته باشید که یک جاذبه طبیعی را از نزدیک ببینید و در دل طبیعت چادر بزنید یا در یک اقامتگاه بوم گردی اتاق بگیرید، باید تورهای طبیعت‌گردی را خریداری کنید. اما اگر بخواهید از جاذبه‌های گردشگری و آثار تاریخی یک مقصد خاص بازدید کنید، می‌توانید تورهای فرهنگی و تاریخی را خریداری کنید.
+                        </p>
+                    </div>
+                    <div className='flex items-center relative  w-[50vw]'>
+                        <Image src={pic1} className=' absolute left-0 ' />
+                        <Image src={pic2} className=' absolute left-10' />
+                        <Image src={pic3} className=' absolute left-20' />
+                        <Image src={pic4} className=' absolute left-30' />
+                    </div>
                 </div>
             </div>
 
