@@ -29,7 +29,7 @@ function Information() {
                     </div>
                 </div>
 
-                <div className='flex  items- center w-[80vw] justify-around  h-140 mt-20'>
+                <div className='flex  items- center w-[80vw] justify-around  h-140 mt-50 '>
                     <div className='w-fit h-fit bg-ambe r-300'>
                         <h2 className='font-extrabold text-[40px] pt-5 pb-5'>چرا <span className='text-[#28A745]'>تورینو</span>؟</h2>
                         <h4 className='font-medium text-2xl  pb-5'>تور طبیعت گردی و تاریخی</h4>
@@ -44,8 +44,42 @@ function Information() {
                         <Image src={pic4} className=' absolute left-30' />
                     </div>
                 </div>
-            </div>
 
+                <div className='flex justify-center border-t border-[#00000033] w-full pt-10 '>
+                    <div className='flex gap-5 items-center justify-around w-[80vw]'>
+
+                        <div className='flex items-center gap-3'>
+                            <img src='/information1.svg' />
+                            <span>
+                                <h2 className='font-medium text-[26px]'>بصرفه ترین قیمت</h2>
+                                <p className='font-light text-[16px]'>
+                                    بصرفه ترین و ارزان ترین قیمت تور را از ما بخواهید.
+                                </p>
+                            </span>
+                        </div>
+
+                        <div className='flex items-center  gap-3'>
+                            <img src='/information2.svg' />
+                            <span>
+                                <h2 className='font-medium text-[26px]'>پشتیبانی</h2>
+                                <p className='font-light text-[16px]'>
+                                    پشتیبانی و همراهی 24 ساعته در تمامی مراحل سفر شما.
+                                </p>
+                            </span>
+                        </div>
+
+                        <div className='flex items-center  gap-3'>
+                            <img src='/information3.svg' />
+                            <span>
+                                <h2 className='font-medium text-[26px]'>رضایت کاربران</h2>
+                                <p className='font-light text-[16px]'>
+                                    رضایت بیش از 10هزار کاربر از تور های ما.
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
