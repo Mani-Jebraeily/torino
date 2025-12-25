@@ -21,8 +21,9 @@ function Tours() {
                             <h2 className=' font-medium text-2xl  p-1'>{tour.title}</h2>
                             <div className=' h-7 overflow-hidden font-normal text-[15px] text-[#282828B2] p-2 '>
                                 {tour.options.map((option) => (
-                                    <>{option}| </>
-                                ))}</div>
+                                    <span key={option}>{option}| </span>
+                                ))}
+                            </div>
                             <div className='flex justify-between items-center p-2  h-10 w-full border-t border-[#D9D9D9]'>
                                 <button className=' w-16.5 h-6.5 bg-[#28A745] rounded-sm font-normal text-[15px] text-[#FFFFFF] cursor-pointer' ><Link href={`/${tour.id}`}>رزرو</Link></button>
                                 <div className='flex items-center gap-2 p-2'>
@@ -31,8 +32,6 @@ function Tours() {
                                 </div>
 
                             </div>
-
-
                         </div>
                     ))
                     }

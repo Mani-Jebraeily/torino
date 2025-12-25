@@ -12,7 +12,7 @@ function Information() {
             <div className='flex flex-col items-center justify-center mt-30 mb-40  '>
                 <div className='w-[80vw] flex h-62.5 border border-[#00000040] rounded-[10px]'>
                     <div className='w-[75%] h-62.5 bg-[#28A745] rounded-[10px] relative flex box-content'>
-                        <Image src={person} className='absolute bottom-0 left-0' />
+                        <Image alt='person picture' src={person} className='absolute bottom-0 left-0' />
                         <div className='flex flex-col justify-center items-center pr-5'>
                             <h3 className='font-extrabold text-[40px] text-[#FFFFFF]'>خرید تلفنی از <span className='text-[#10411B]'>تورینو</span></h3>
                             <h4 className='text-[#FFFFFF] font-normal text-[26px]'>به هر کجا که میخواهید !</h4>
@@ -38,10 +38,10 @@ function Information() {
                         </p>
                     </div>
                     <div className='flex items-center relative  w-[50vw]'>
-                        <Image src={pic1} className=' absolute left-0 ' />
-                        <Image src={pic2} className=' absolute left-10' />
-                        <Image src={pic3} className=' absolute left-20' />
-                        <Image src={pic4} className=' absolute left-30' />
+                        <Image src={pic1} alt='tours picture' className=' absolute left-0 ' />
+                        <Image src={pic2} alt='tours picture' className=' absolute left-10' />
+                        <Image src={pic3} alt='tours picture' className=' absolute left-20' />
+                        <Image src={pic4} alt='tours picture' className=' absolute left-30' />
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@ function Information() {
                     <div className='flex gap-5 items-center justify-around w-[80vw]'>
 
                         <div className='flex items-center gap-3'>
-                            <img src='/information1.svg' />
+                            <img src='/information1.svg' alt='information icon' />
                             <span>
                                 <h2 className='font-medium text-[26px]'>بصرفه ترین قیمت</h2>
                                 <p className='font-light text-[16px]'>
@@ -59,7 +59,7 @@ function Information() {
                         </div>
 
                         <div className='flex items-center  gap-3'>
-                            <img src='/information2.svg' />
+                            <img src='/information2.svg' alt='information icon'/>
                             <span>
                                 <h2 className='font-medium text-[26px]'>پشتیبانی</h2>
                                 <p className='font-light text-[16px]'>
@@ -69,7 +69,7 @@ function Information() {
                         </div>
 
                         <div className='flex items-center  gap-3'>
-                            <img src='/information3.svg' />
+                            <img src='/information3.svg' alt='information icon'/>
                             <span>
                                 <h2 className='font-medium text-[26px]'>رضایت کاربران</h2>
                                 <p className='font-light text-[16px]'>
