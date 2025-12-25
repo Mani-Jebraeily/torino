@@ -73,7 +73,7 @@ function TourDetails({ tour }) {
                                 <img src='/routing-2.svg' />
                                 <span>مبدا</span>
                             </div>
-                            <span>{tour.origin.name}</span>
+                            <span>{tour.origin.nameFa}</span>
                         </div>
 
                         <div className='border-l'>
