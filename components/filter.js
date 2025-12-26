@@ -59,28 +59,12 @@ function Filter() {
 
     return (
         <>
-            <DatePicker
+            <Calendar
                 value={value}
+                calendar={persian}
+                locale={persian_fa}
                 onChange={calendarHandeler}
-                calendar={persian}
-                locale={persian_fa}
             />
-
-            {/* <DatePicker
-                value={date}
-                onChange={setDate}
-
-                calendar={persian}
-                locale={persian_en}
-                calendarPosition="bottom-right"
-            /> */}
-
-            {/* <Calendar
-                value={date}
-                calendar={persian}
-                locale={persian_fa}
-                onChange={setDate}
-            /> */}
 
             <div className=' flex flex-col justify-center items-center'>
                 <h2 className='font-semibold text-[28px] text-[#595959] flex gap-2 mt-5 mb-5'>
