@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react'
 import { useContext } from 'react'
 import { TourContext } from '@/pages'
@@ -6,20 +8,30 @@ import calenderIcon from '@/public/calendar-filter.svg'
 import originIcon from '@/public/location.svg'
 import destinationIcon from '@/public/global-search.svg'
 
-import farvardin from '@/farvardin'
 
-// import DatePicker from "react-multi-date-picker";
-// import { Calendar } from "react-multi-date-picker"
-// import farsiCalendar from "react-date-object/calendars/persian"
+
 
 import { Calendar } from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
 
 
-import DatePicker from "react-multi-date-picker"
-// import persian from "react-date-object/calendars/persian"
-import persian_en from "react-date-object/locales/persian_fa"
+
+
+
+import dynamic from "next/dynamic";
+
+const DatePicker = dynamic(
+  () => import("react-multi-date-picker").then((mod) => mod.default),
+  { ssr: false }
+);
+
+import { DateObject } from "react-multi-date-picker";
+// import persian from "react-date-object/calendars/persian";
+// import persian_fa from "react-date-object/locales/persian_fa";
+import gregorian from "react-date-object/calendars/gregorian";
+import gregorian_en from "react-date-object/locales/gregorian_en";
+
 
 
 
@@ -30,24 +42,38 @@ function Filter() {
     const [origin, setOrigin] = useState("")
     const [destination, setDestination] = useState("")
     const [date, setDate] = useState();
-    // const [year,month,day]=date.split("/")
-    // const text = "۱۳۴۲/۲/۱"
-    // const [year, month, day] = text.split("/")
-    // console.log(year, month, day)
+    const [value, setValue] = useState(new DateObject());
 
-    // console.log(farvardin.solarToGregorian(year, month,day))
     console.log(date)
+
+    const calendarHandeler = (date) => {
+        setValue(date);
+        if (date) {
+            const gregorianDate = new DateObject(date)
+                .convert(gregorian, gregorian_en)
+                .format("YYYY-MM-DD");
+            setDate(gregorianDate)
+        }
+    };
+
 
     return (
         <>
             <DatePicker
+                value={value}
+                onChange={calendarHandeler}
+                calendar={persian}
+                locale={persian_fa}
+            />
+
+            {/* <DatePicker
                 value={date}
                 onChange={setDate}
 
                 calendar={persian}
                 locale={persian_en}
                 calendarPosition="bottom-right"
-            />
+            /> */}
 
             {/* <Calendar
                 value={date}
