@@ -17,6 +17,11 @@ import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
 
 
+import DatePicker from "react-multi-date-picker"
+// import persian from "react-date-object/calendars/persian"
+import persian_en from "react-date-object/locales/persian_fa"
+
+
 
 
 
@@ -26,22 +31,30 @@ function Filter() {
     const [destination, setDestination] = useState("")
     const [date, setDate] = useState();
     // const [year,month,day]=date.split("/")
-    const text="۱۳۴۲/۲/۱"
-    const[year,month,day]=text.split("/")
-    console.log(year,month ,day)
-    // const string=date.day
-    // console.log(ee)
-    // console.log( string)
+    // const text = "۱۳۴۲/۲/۱"
+    // const [year, month, day] = text.split("/")
+    // console.log(year, month, day)
+
     // console.log(farvardin.solarToGregorian(year, month,day))
+    console.log(date)
 
     return (
         <>
-            <Calendar
+            <DatePicker
+                value={date}
+                onChange={setDate}
+
+                calendar={persian}
+                locale={persian_en}
+                calendarPosition="bottom-right"
+            />
+
+            {/* <Calendar
                 value={date}
                 calendar={persian}
                 locale={persian_fa}
                 onChange={setDate}
-            />
+            /> */}
 
             <div className=' flex flex-col justify-center items-center'>
                 <h2 className='font-semibold text-[28px] text-[#595959] flex gap-2 mt-5 mb-5'>
