@@ -9,25 +9,19 @@ import destinationIcon from '@/public/global-search.svg'
 import { Calendar } from "react-multi-date-picker"
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
-// import dynamic from "next/dynamic";
-
-// const DatePicker = dynamic(
-//   () => import("react-multi-date-picker").then((mod) => mod.default),
-//   { ssr: false }
-// );
 import { DateObject } from "react-multi-date-picker";
 import gregorian from "react-date-object/calendars/gregorian";
 import gregorian_en from "react-date-object/locales/gregorian_en";
-import axios from 'axios';
 function Filter() {
-    const api = process.env.NEXT_PUBLIC_API_URL
-    const { tours } = useContext(TourContext)
+    const { tours, setTours } = useContext(TourContext)
     const [origin, setOrigin] = useState("")
     const [destination, setDestination] = useState("")
     const [date, setDate] = useState();
     const [value, setValue] = useState(new DateObject());
     const [showCalender, setShowCalender] = useState(false)
-    const [filterTour,setFilterTour]=useState([])
+    const [filterTour, setFilterTour] = useState([])
+
+
 
     const calendarHandeler = (date) => {
         setValue(date);
@@ -38,13 +32,22 @@ function Filter() {
             setDate(gregorianDate)
         }
     };
-    console.log(origin, destination, date)
+
+
 
     const filterHandeler = () => {
-        axios.get(`${api}/tour?startDate=${date}&destinationId=${destination}&originId=${origin}`)
-        .then((res)=>setFilterTour(res))
+        for (const i of tours) {
+            if (origin && destination) {
+                if (i.origin.name === origin && i.destination.name === destination)
+                      setFilterTour(...filterTour,i)
+            } else if(origin||destination){
+                if (i.origin.name === origin || i.destination.name === destination)
+                    setFilterTour(...filterTour,i)
+            }
+        }
     }
-    console.log(filterTour)
+
+    console.log(filterTour,98)
     return (
         <>
             <div className=' flex flex-col justify-center items-center'>
@@ -59,7 +62,7 @@ function Filter() {
                         <select className='cursor-pointer' onChange={(e) => { setOrigin(e.target.value) }} name="origin" id="origin" >
                             <option value={""}>مبدا</option>
                             {tours.map((tour) => (
-                                <option value={tour.origin.id}>{tour.origin.nameFa}</option>
+                                <option value={tour.origin.name}>{tour.origin.nameFa}</option>
                             ))}
                         </select>
                     </div>
@@ -69,7 +72,7 @@ function Filter() {
                         <select className='cursor-pointer' onChange={(e) => { setDestination(e.target.value) }} name="destination" id="destination">
                             <option value={""}>مقصد</option>
                             {tours.map((tour) => (
-                                <option value={tour.destination.id}>{tour.destination.nameFa}</option>
+                                <option value={tour.destination.name}>{tour.destination.nameFa}</option>
                             ))}
                         </select>
                     </div>
