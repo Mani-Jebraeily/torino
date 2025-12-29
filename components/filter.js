@@ -12,14 +12,18 @@ import persian_fa from "react-date-object/locales/persian_fa"
 import { DateObject } from "react-multi-date-picker";
 import gregorian from "react-date-object/calendars/gregorian";
 import gregorian_en from "react-date-object/locales/gregorian_en";
+import { useRouter } from 'next/navigation'
 function Filter() {
-    const { tours, setTours } = useContext(TourContext)
+    const { tours, setTours} = useContext(TourContext)
     const [origin, setOrigin] = useState("")
     const [destination, setDestination] = useState("")
     const [date, setDate] = useState();
     const [value, setValue] = useState(new DateObject());
     const [showCalender, setShowCalender] = useState(false)
     const [filterTour, setFilterTour] = useState([])
+    const [showReset, setShowReset] = useState(false)
+
+    const router = useRouter()
 
 
 
@@ -33,21 +37,34 @@ function Filter() {
         }
     };
 
-
-
     const filterHandeler = () => {
+        if (origin || destination) {
+            setShowReset(true)
+        }
         for (const i of tours) {
             if (origin && destination) {
-                if (i.origin.name === origin && i.destination.name === destination)
-                      setFilterTour(...filterTour,i)
-            } else if(origin||destination){
-                if (i.origin.name === origin || i.destination.name === destination)
-                    setFilterTour(...filterTour,i)
+                if (i.origin.name === origin && i.destination.name === destination) {
+                    // setFilterTour(filterTour => [...filterTour, i])
+                    // setFilterTour(i)
+                    setTours(tours=>[...tours,i])
+
+                }
+            } else if (origin || destination) {
+                if (i.origin.name === origin || i.destination.name === destination) {
+                    setFilterTour(filterTour => [...filterTour, i])
+                
+                    // setFilterTour(i)
+                    setTours([filterTour])
+                    // setTours(tours=>[...tours,i])
+
+
+                }
+
             }
         }
     }
 
-    console.log(filterTour,98)
+    console.log({ filterTour, tours })
     return (
         <>
             <div className=' flex flex-col justify-center items-center'>
@@ -61,7 +78,7 @@ function Filter() {
                         <Image src={originIcon} alt='icon origin' />
                         <select className='cursor-pointer' onChange={(e) => { setOrigin(e.target.value) }} name="origin" id="origin" >
                             <option value={""}>مبدا</option>
-                            {tours.map((tour) => (
+                            {tours&& tours.map((tour) => (
                                 <option value={tour.origin.name}>{tour.origin.nameFa}</option>
                             ))}
                         </select>
@@ -71,7 +88,7 @@ function Filter() {
                         <Image src={destinationIcon} alt='icon destination' />
                         <select className='cursor-pointer' onChange={(e) => { setDestination(e.target.value) }} name="destination" id="destination">
                             <option value={""}>مقصد</option>
-                            {tours.map((tour) => (
+                            {tours&& tours.map((tour) => (
                                 <option value={tour.destination.name}>{tour.destination.nameFa}</option>
                             ))}
                         </select>
@@ -82,7 +99,7 @@ function Filter() {
                         <button onClick={() => { setShowCalender(!showCalender) }}>تاریخ</button>
                         {showCalender && <Calendar className=' absolute top-15 left-[-70]' value={value} calendar={persian} locale={persian_fa} onChange={calendarHandeler} />}
                     </div>
-
+                    {showReset && <button className='size-10 bg-red-400 cursor-pointer text-white rounded-full' onClick={() => { router.refresh() }}>X</button>}
                     <button onClick={filterHandeler} className='bg-[#28A745] w-47.5 h-12.75 rounded-2xl cursor-pointer text-[#FFFFFF] text-2xl '>جستجو</button>
                 </div>
 

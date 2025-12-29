@@ -15,7 +15,7 @@ function Tours() {
             <div className='w-full flex flex-col justify-center items-center mt-25'>
                 <h1 className='w-[80vw] font-normal text-5xl  mb-5'>همه تور ها</h1>
                 <div className="w-[80vw] mx-auto  bg-amber-6 00 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-15">
-                    {tours.map((tour) => (
+                    {tours&& tours.map((tour) => (
                         <div key={tour.id} className='box-content size-68.5 rounded-xl border border-[#D9D9D9] shadow-lg shadow-slate-300'>
                             <img src={tour.image} alt='tour image' />
                             <h2 className=' font-medium text-2xl  p-1'>{tour.title}</h2>
@@ -35,6 +35,8 @@ function Tours() {
                         </div>
                     ))
                     }
+
+                    {!tours&&<h2 >تور مد نظر وجود ندارد</h2>}
                 </div>
 
             </div>
