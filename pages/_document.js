@@ -8,7 +8,6 @@ export default function Document() {
     <Html lang="fa" dir="rtl">
       <Head />
       <body className="antialiased">
-        <Header/>
         <Main />
         <GitHub/>
         <Footer/>

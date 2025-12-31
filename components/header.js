@@ -4,14 +4,17 @@ import logo from '@/public/logo.svg'
 import btn from '@/public/btnsignin.svg'
 import ModalSignIn from '@/components/modules/modalSignIn'
 import { useState } from 'react'
+import ModalCofirmCode from './modules/modalCofirmCode'
 
 function Header() {
     const [showSignIn, setShowSignIn] = useState(false)
+    const [showOTP, setShowOTP] = useState(false)
 
 
     return (
         <>
-            {showSignIn && <ModalSignIn setShowSignIn={setShowSignIn} />}
+            {showSignIn && <ModalSignIn setShowSignIn={setShowSignIn} setShowOTP={setShowOTP}/>}
+            {showOTP && <ModalCofirmCode setShowOTP={setShowOTP}/>}
 
 
             <div className='pb-3  border-b border-[#00000029] flex items-center justify-center'>
@@ -26,7 +29,7 @@ function Header() {
                             <li> تماس با ما</li>
                         </ul>
                     </div>
-                    <button className=' cursor-pointer'>
+                    <button onClick={()=>setShowSignIn(true)} className=' cursor-pointer'>
                         <Image src={btn} />
                     </button>
                 </div>

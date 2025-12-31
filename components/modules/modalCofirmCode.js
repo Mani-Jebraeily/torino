@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 
-function ModalCofirmCode() {
+function ModalCofirmCode({setShowOTP}) {
   const [code, setCode] = useState()
     return (
         <>
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-1">
                 <div className='relative flex flex-col justify-center items-center gap-5 w-[80vw] sm:w-[472px] h-[338px] rounded-2xl bg-[#FFFFFF]'>
-                    <span onClick={() => setShowSignIn(false)} className='absolute top-2 left-4 cursor-pointer'>X</span>
+                    <span onClick={() => setShowOTP(false)} className='absolute top-2 left-4 cursor-pointer'>X</span>
 
                     <h1 className='font-semibold text-[28px] text-[#282828]'>کد تایید را وارد کنید.</h1>
                     <h2 className='font-normal text-[16px]'>کد به شماره ۰۰ ارسال شد</h2>

@@ -14,7 +14,7 @@ import gregorian from "react-date-object/calendars/gregorian";
 import gregorian_en from "react-date-object/locales/gregorian_en";
 import { useRouter } from 'next/navigation'
 function Filter() {
-    const { tours, setTours} = useContext(TourContext)
+    const { tours, setTours } = useContext(TourContext)
     const [origin, setOrigin] = useState("")
     const [destination, setDestination] = useState("")
     const [date, setDate] = useState();
@@ -46,16 +46,16 @@ function Filter() {
                 if (i.origin.name === origin && i.destination.name === destination) {
                     // setFilterTour(filterTour => [...filterTour, i])
                     // setFilterTour(i)
-                    setTours(tours=>[...tours,i])
+                    setTours(tours => [...tours, i])
 
                 }
             } else if (origin || destination) {
                 if (i.origin.name === origin || i.destination.name === destination) {
-                    setFilterTour(filterTour => [...filterTour, i])
-                
-                    // setFilterTour(i)
-                    setTours([filterTour])
-                    // setTours(tours=>[...tours,i])
+                    setFilterTour(prev => {
+                        const updated = [...prev, i]
+                        setTours(updated)
+                        return updated
+                    })
 
 
                 }
@@ -69,7 +69,7 @@ function Filter() {
         <>
             <div className=' flex flex-col justify-center items-center'>
                 <h2 className='font-semibold text-[28px] text-[#595959] flex gap-2 mt-5 mb-5'>
-                    <span>تورینو</span>
+                    <span className='text-[#28A745]'>تورینو</span>
                     برگزار کننده بهترین تور های داخلی و خارجی
                 </h2>
 
@@ -78,7 +78,7 @@ function Filter() {
                         <Image src={originIcon} alt='icon origin' />
                         <select className='cursor-pointer' onChange={(e) => { setOrigin(e.target.value) }} name="origin" id="origin" >
                             <option value={""}>مبدا</option>
-                            {tours&& tours.map((tour) => (
+                            {tours && tours.map((tour) => (
                                 <option value={tour.origin.name}>{tour.origin.nameFa}</option>
                             ))}
                         </select>
@@ -88,7 +88,7 @@ function Filter() {
                         <Image src={destinationIcon} alt='icon destination' />
                         <select className='cursor-pointer' onChange={(e) => { setDestination(e.target.value) }} name="destination" id="destination">
                             <option value={""}>مقصد</option>
-                            {tours&& tours.map((tour) => (
+                            {tours && tours.map((tour) => (
                                 <option value={tour.destination.name}>{tour.destination.nameFa}</option>
                             ))}
                         </select>
