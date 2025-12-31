@@ -1,9 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-function ModalSignIn({ setShowSignIn,setShowOTP }) {
+function ModalSignIn({ setShowSignIn,setShowOTP,phoneNumber,setPhoneNumber }) {
     const api = process.env.NEXT_PUBLIC_API_URL
-    const [phoneNumber, setPhoneNumber] = useState("")
 
     const loginHandeler = () => {
         if(phoneNumber.length===11){

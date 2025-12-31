@@ -7,14 +7,15 @@ import { useState } from 'react'
 import ModalCofirmCode from './modules/modalCofirmCode'
 
 function Header() {
+    const [phoneNumber, setPhoneNumber] = useState("")
     const [showSignIn, setShowSignIn] = useState(false)
     const [showOTP, setShowOTP] = useState(false)
 
 
     return (
         <>
-            {showSignIn && <ModalSignIn setShowSignIn={setShowSignIn} setShowOTP={setShowOTP}/>}
-            {showOTP && <ModalCofirmCode setShowOTP={setShowOTP}/>}
+            {showSignIn && <ModalSignIn phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} setShowSignIn={setShowSignIn} setShowOTP={setShowOTP}/>}
+            {showOTP && <ModalCofirmCode setShowOTP={setShowOTP} phoneNumber={phoneNumber}/>}
 
 
             <div className='pb-3  border-b border-[#00000029] flex items-center justify-center'>
