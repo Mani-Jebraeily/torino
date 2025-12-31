@@ -10,8 +10,8 @@ function ModalCofirmCode({ setShowOTP, phoneNumber }) {
         axios.post(`${api}/auth/check-otp`,{code:code,mobile:phoneNumber})
         .then((res)=>{
             if(res.status===200){
-                // console.log(res)
                  document.cookie = `token=${res.data.accessToken}; max-age=60*60*24; `
+                 document.cookie = `phoneNumber=${phoneNumber}; max-age=60*60*24; `
                 setShowOTP(false)
             }
         })
