@@ -1,21 +1,25 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+
 
 function ModalCofirmCode({ setShowOTP, phoneNumber }) {
+    const router = useRouter()
     const api = process.env.NEXT_PUBLIC_API_URL
     const [code, setCode] = useState()
 
     console.log(typeof code)
     const otpHandeler = () => {
-        axios.post(`${api}/auth/check-otp`,{code:code,mobile:phoneNumber})
-        .then((res)=>{
-            if(res.status===200){
-                 document.cookie = `token=${res.data.accessToken}; max-age=60*60*24; `
-                 document.cookie = `phoneNumber=${phoneNumber}; max-age=60*60*24; `
-                setShowOTP(false)
-            }
-        })
-        
+        axios.post(`${api}/auth/check-otp`, { code: code, mobile: phoneNumber })
+            .then((res) => {
+                if (res.status === 200) {
+                    document.cookie = `token=${res.data.accessToken}; max-age=60*60*24; `
+                    document.cookie = `phoneNumber=${phoneNumber}; max-age=60*60*24; `
+                    setShowOTP(false)
+                    router.refresh()
+                }
+            })
+
 
     }
     return (

@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import logo from '@/public/logo.svg'
 import userIcon from '@/public/userIcon.svg'
@@ -7,6 +7,7 @@ import ModalSignIn from '@/components/modules/modalSignIn'
 import { useState } from 'react'
 import ModalCofirmCode from './modules/modalCofirmCode'
 import { getCookie } from 'cookies-next'
+import ModalProfile from './modules/modalProfile'
 
 function Header() {
     // const token = getCookie("token")
@@ -16,6 +17,7 @@ function Header() {
     const [phoneNumber, setPhoneNumber] = useState("")
     const [showSignIn, setShowSignIn] = useState(false)
     const [showOTP, setShowOTP] = useState(false)
+    const [showModalProfile,setShowModalProfile]=useState(false)
     console.log(token, 99)
 
 
@@ -42,24 +44,30 @@ function Header() {
                             <li> تماس با ما</li>
                         </ul>
                     </div>
-                    <button onClick={() => setShowSignIn(true)} className=' flex items-center justify-center cursor-pointer w-41.5 h-11 border-2 border-[#28A745] rounded-lg'>
-                        <Image src={userIcon} />
-                        {token?
-                            <>
-                                <p className='font-medium text-[18px text-[#28A745]'>
-                                    {phoneProfile}
-                                </p>
+                    {token ?
+                        <button onClick={() => setShowModalProfile(!showModalProfile)} className=' relative flex items-center justify-center cursor-pointer w-41.5 h-11 border-2 border-[#28A745] rounded-lg'>
+                            <Image src={userIcon} />
+                            <p className='font-medium text-[18px text-[#28A745]'>
+                                {phoneProfile}
+                            </p>
+                            <Image src={arrowDown} />
+                            {showModalProfile&&
+                            <ModalProfile />
+                            }
 
-                                <Image src={arrowDown} />
-                            </>
-                            :
+                        </button>
+
+                        :
+                        <button onClick={() => setShowSignIn(true)} className=' flex items-center justify-center cursor-pointer w-41.5 h-11 border-2 border-[#28A745] rounded-lg'>
+                            <Image src={userIcon} />
                             <p className='font-medium text-[18px] text-[#28A745]'>
                                 ورود | ثبت نام
                             </p>
-                        }
+                        </button>
+
+                    }
 
 
-                    </button>
                 </div>
 
             </div>
