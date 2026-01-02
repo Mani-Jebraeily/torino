@@ -6,7 +6,7 @@ import arrowDown from '@/public/arrow-down.svg'
 import ModalSignIn from '@/components/modules/modalSignIn'
 import { useState } from 'react'
 import ModalCofirmCode from './modules/modalCofirmCode'
-import { getCookie } from 'cookies-next'
+import { getCookie } from 'cookies-next' 
 import ModalProfile from './modules/modalProfile'
 
 function Header() {

@@ -12,7 +12,7 @@ function Profile() {
     return (
         <>
             <Header />
-            <div>
+            <div className='flex'>
                 <div className='w-71 h-42 flex flex-col border border-[#00000033] rounded-[10px] overflow-hidden'>
                     <button className='flex items-center gap-2 cursor-pointer w-full h-[170px] '>
                         <Image src={userIcon} />
