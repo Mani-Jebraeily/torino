@@ -12,7 +12,7 @@ import logo3 from '@/public/logo3.svg'
 function Footer() {
     return (
         <>
-            <div className='flex items-center justify-center'>
+            <div className='flex items-center justify-center     absolute bottom-0    w-full'>
                 <div className='pb-5 pt-5 w-[80vw] flex justify-between  border-t relative bottom-0 border-[#00000033]'>
                     <div className='w-[20%] flex  gap-5 justify-between items-center ' >
                         <ul className=' min-w-fit flex flex-col gap-1 *:cursor-pointer  *:font-normal text-[18px]   text-[#282828]'>
