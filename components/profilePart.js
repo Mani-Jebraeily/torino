@@ -20,7 +20,7 @@ function Profile() {
                             <h2>{phoneProfile}</h2>
                         </div>
                         <div className='flex gap-5 '>
-                            <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='آدرس ایمیل' />
+                            <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080]/50 font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='آدرس ایمیل' />
                             <button className='w-[122px] h-[45px] rounded-[5px] bg-[#28A745] text-[16px] font-semibold text-[#FFFFFF] cursor-pointer'>تایید</button>
                         </div>
                     </div>
@@ -31,11 +31,11 @@ function Profile() {
                     <div className='flex items-center justify-around mb-12'>
 
                         <div className='flex  flex-col gap-5 '>
-                            <div className='flex flex-wrap pr-2 gap-5'>
-                                <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='نام و نام خانوادگی' />
-                                <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='کدملی' />
-                                <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='تاریخ تولد' />
-                                <select className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' name="destination" id="destination">
+                            <div className='flex flex-wrap pr-2 gap-5 *:w-63.75 *:h-11.25 *:rounded-[5px] *:border *:border-[#00000080]/50 *:font-normal *:text-[#00000080] *:text-[14px] *:pr-3'>
+                                <input type='email' placeholder='نام و نام خانوادگی' />
+                                <input type='email' placeholder='کدملی' />
+                                <input type='email' placeholder='تاریخ تولد' />
+                                <select name="destination" id="destination">
                                     <option value={""} selected>جنسیت</option>
                                     <option value={"male"}>آقا</option>
                                     <option value={"femail"}>خانم</option>
