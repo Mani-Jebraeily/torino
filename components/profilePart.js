@@ -28,22 +28,24 @@ function Profile() {
 
                 <div className='w-[872px] h-[240px] rounded-[10px] border border-[#00000033] '>
                     <h1 className='font-normal text-[16px] p-3'>اطلاعات شخصی</h1>
-                    <div className='flex items-center justify-around'>
+                    <div className='flex items-center justify-around mb-12'>
 
-                        <div className='flex flex-wrap gap-5 '>
-                            <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='نام و نام خانوادگی' />
-                            <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='کدملی' />
-                            <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='تاریخ تولد' />
-                            <select className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' name="destination" id="destination">
-                                <option value={""} selected>جنسیت</option>
-                                <option value={"male"}>آقا</option>
-                                <option value={"femail"}>خانم</option>
-                            </select>
+                        <div className='flex  flex-col gap-5 '>
+                            <div className='flex flex-wrap pr-2 gap-5'>
+                                <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='نام و نام خانوادگی' />
+                                <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='کدملی' />
+                                <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='تاریخ تولد' />
+                                <select className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080] font-normal text-[#00000080] text-[14px] pr-3' name="destination" id="destination">
+                                    <option value={""} selected>جنسیت</option>
+                                    <option value={"male"}>آقا</option>
+                                    <option value={"femail"}>خانم</option>
+                                </select>
+                            </div>
                             <div className='w-full overflow-hidden border-t border-[#00000033]'>
-                                  <div className='flex items-sta ml-20  gap-3 items-center justify-end  h-15'>
+                                <div className='flex items-sta ml-20  gap-3 items-center justify-end  h-15'>
                                     <button className='w-36 h-10 rounded-[5px] bg-[#28A745] font-semibold text-[16px] text-white cursor-pointer '>تایید</button>
                                     <button className='w-36 h-10 rounded-[5px] border-2 border-[#28A745]  font-semibold text-[16px] text-[#28A745] cursor-pointer '>انصراف</button>
-                                  </div>
+                                </div>
                             </div>
 
                         </div>
