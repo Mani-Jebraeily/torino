@@ -13,14 +13,14 @@ function ModalCofirmCode({ setShowOTP, phoneNumber }) {
         axios.post(`${api}/auth/check-otp`, { code: code, mobile: phoneNumber })
             .then((res) => {
                 if (res.status === 200) {
-                    document.cookie = `token=${res.data.accessToken}; max-age=60*60*24; `
-                    document.cookie = `phoneNumber=${phoneNumber}; max-age=60*60*24; `
+                    console.log(res)
+                    document.cookie = `accesToken=${res.data.accessToken}; max-age=${7*24*60*60}; `
+                    document.cookie = `refreshToken=${res.data.refreshToken}; max-age=${30*24*60*60}; `
+                    document.cookie = `phoneNumber=${phoneNumber}; max-age=${30*24*60*60};`
                     setShowOTP(false)
                     router.refresh()
                 }
             })
-
-
     }
     return (
         <>

@@ -6,8 +6,9 @@ import arrowDown from '@/public/arrow-down.svg'
 import ModalSignIn from '@/components/modules/modalSignIn'
 import { useState } from 'react'
 import ModalCofirmCode from './modules/modalCofirmCode'
-import { getCookie } from 'cookies-next' 
+import { getCookie } from 'cookies-next'
 import ModalProfile from './modules/modalProfile'
+import Link from 'next/link'
 
 function Header() {
     // const token = getCookie("token")
@@ -17,12 +18,12 @@ function Header() {
     const [phoneNumber, setPhoneNumber] = useState("")
     const [showSignIn, setShowSignIn] = useState(false)
     const [showOTP, setShowOTP] = useState(false)
-    const [showModalProfile,setShowModalProfile]=useState(false)
-    console.log(token, 99)
+    const [showModalProfile, setShowModalProfile] = useState(false)
+    // console.log(token, 99)
 
 
     useEffect(() => {
-        setToken(getCookie("token"))
+        setToken(getCookie("refreshToken"))
         setPhoneProfile(getCookie("phoneNumber"))
     }, [])
 
@@ -34,32 +35,32 @@ function Header() {
 
             <div className='pb-3  border-b border-[#00000029] flex items-center justify-center'>
                 <div className=' w-[80vw] flex justify-between'>
-                    <Image src={logo} />
+                    <Link href='/'>  <Image src={logo} alt='logo' /></Link>
 
                     <div className='w-[60%]  flex justify-center  gap-2'>
                         <ul className='*:min-w -fit  flex  items-center gap-5 *:cursor-pointer *:text-[16px] *:font-normal *: text-[#282828]'>
-                            <li className='text-[#28A745]'>صفحه اصلی</li>
-                            <li>خدمات گردشگری</li>
-                            <li>درباره ما</li>
-                            <li> تماس با ما</li>
+                            <Link href='/'><li className='text-[#28A745]'>صفحه اصلی</li></Link>
+                            <Link href='/'><li>خدمات گردشگری</li></Link>
+                            <Link href='/'><li>درباره ما</li></Link>
+                            <Link href='/'><li> تماس با ما</li></Link>
                         </ul>
                     </div>
                     {token ?
-                        <button onClick={() => setShowModalProfile(!showModalProfile)} className=' relative flex items-center justify-center cursor-pointer w-41.5 h-11 border-2 border-[#28A745] rounded-lg'>
-                            <Image src={userIcon} />
+                        <div onClick={() => setShowModalProfile(!showModalProfile)} className=' relative flex items-center justify-center cursor-pointer w-41.5 h-11 border-2 border-[#28A745] rounded-lg'>
+                            <Image src={userIcon} alt='user Icon' />
                             <p className='font-medium text-[18px text-[#28A745]'>
                                 {phoneProfile}
                             </p>
-                            <Image src={arrowDown} />
-                            {showModalProfile&&
-                            <ModalProfile />
+                            <Image src={arrowDown} alt='arrow icon' />
+                            {showModalProfile &&
+                                <ModalProfile />
                             }
 
-                        </button>
+                        </div>
 
                         :
                         <button onClick={() => setShowSignIn(true)} className=' flex items-center justify-center cursor-pointer w-41.5 h-11 border-2 border-[#28A745] rounded-lg'>
-                            <Image src={userIcon} />
+                            <Image src={userIcon} alt='user icon' />
                             <p className='font-medium text-[18px] text-[#28A745]'>
                                 ورود | ثبت نام
                             </p>

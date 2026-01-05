@@ -13,7 +13,8 @@ function ModalProfile() {
     
 
     const deleteTokenHandeler = () => {
-        document.cookie = `token=0; Expires=Thu, 01 Jan 1970 00:00:01 GMT `
+        document.cookie = `refreshToken=0; Expires=Thu, 01 Jan 1970 00:00:01 GMT `
+        document.cookie = `accesToken=0; Expires=Thu, 01 Jan 1970 00:00:01 GMT `
         document.cookie = `phoneNumber=0; Expires=Thu, 01 Jan 1970 00:00:01 GMT `
         router.refresh()
     }

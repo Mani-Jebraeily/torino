@@ -36,7 +36,7 @@ function Profile() {
                                 <input type='email' placeholder='کدملی' />
                                 <input type='email' placeholder='تاریخ تولد' />
                                 <select name="destination" id="destination">
-                                    <option value={""} selected>جنسیت</option>
+                                    <option value>جنسیت</option>
                                     <option value={"male"}>آقا</option>
                                     <option value={"femail"}>خانم</option>
                                 </select>
