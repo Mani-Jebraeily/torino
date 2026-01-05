@@ -2,21 +2,49 @@ import React from 'react'
 import IconUserTick from '@/public/user-tick.svg'
 import IconMap from '@/public/map.svg'
 import { formatFaNumber } from './tours'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { getCookie } from 'cookies-next'
+import { useRouter } from 'next/navigation'
+
 
 function TourDetails({ tour }) {
+     const router = useRouter()
+    const api = process.env.NEXT_PUBLIC_API_URL
     const startDay = new Date(tour.startDate).getTime()
     const endtDay = new Date(tour.endDate).getTime()
     const totalDays = endtDay - startDay
     const msPerDay = 1000 * 60 * 60 * 24;
     const nightsCount = formatFaNumber(Math.floor(totalDays / msPerDay));
     const daysCount = formatFaNumber(Math.floor(totalDays / msPerDay) + 1);
+    const [token, setToken] = useState(null)
 
-    console.log(nightsCount)
-    console.log(daysCount)
+
+
+    useEffect(() => {
+        setToken(getCookie("accesToken"))
+    }, [])
 
     const shamsiDate = (date) => {
         const dateFormat = new Date(date)
         return new Intl.DateTimeFormat('fa-IR').format(dateFormat);
+    }
+
+    const reserveHandeler = () => {
+        axios.put(
+            `${api}/basket/${tour.id}`,
+            null,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        ).then((res)=>{
+            if(res.status===201){
+                    router.push("/basket")
+            }
+        })
+
     }
     return (
         <>
@@ -32,7 +60,7 @@ function TourDetails({ tour }) {
                                 روز و
                                 {nightsCount}
                                 شب
-                                </h1>
+                            </h1>
                             <div className='flex *:flex gap-15 *:gap-2' >
                                 <span>
                                     <img src='/user-tick.svg' />
@@ -61,7 +89,9 @@ function TourDetails({ tour }) {
                                         تومان
                                     </span>
                                 </div>
-                                <button className='w-50 h-14 rounded-[10px] bg-[#28A745] text-[#FFFFFF] font-normal text-2xl cursor-pointer'>رزرو و خرید</button>
+                                <button onClick={reserveHandeler} className='w-50 h-14 rounded-[10px] bg-[#28A745] text-[#FFFFFF] font-normal text-2xl cursor-pointer'>
+                                    رزرو و خرید
+                                </button>
                             </div>
                         </div>
                     </div>
