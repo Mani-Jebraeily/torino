@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { getCookie } from 'cookies-next'
 import { formatFaNumber } from '../tours'
+import Link from 'next/link'
 
 
 
@@ -14,6 +15,10 @@ function BasketTemplate() {
     const [data, setData] = useState()
     const [day, setDay] = useState()
     const [night, setnight] = useState()
+    const [fullName, setFullName] = useState()
+    const [nationalCode, setNationalCode] = useState()
+    const [gender, setGender] = useState()
+    const [birthDate, setBirthDate] = useState()
     useEffect(() => {
         const fetchData = async () => {
             const token = await getCookie("accesToken");
@@ -35,6 +40,19 @@ function BasketTemplate() {
         fetchData();
     }, [])
 
+    const  buyHandeler =() => {
+            const token = getCookie("accesToken");
+
+        if (fullName && nationalCode && gender && birthDate) {
+            axios.post(`${api}/order`, { nationalCode, fullName, gender, birthDate },
+                 { headers: { Authorization: `Bearer ${token}` } }
+                ).then((res)=>console.log(res))
+
+        } else {
+            alert("تمام فیلد هارو پر کنید")
+        }
+    }
+
     return (
         <>
             <Header />
@@ -49,10 +67,10 @@ function BasketTemplate() {
                                     <h2 className='font-normal text-[24px] text-[#000000]'>مشخصات مسافر</h2>
                                 </div>
                                 <div className='flex flex-wrap pr-2 gap-5 *:w-63.75 *:h-11.25 *:rounded-[5px] *:border *:border-[#00000080]/50 *:font-normal *:text-[#00000080] *:text-[14px] *:pr-3'>
-                                    <input type='email' placeholder='نام و نام خانوادگی' />
-                                    <input type='email' placeholder='کدملی' />
-                                    <input type='email' placeholder='تاریخ تولد' />
-                                    <select name="destination" id="destination">
+                                    <input onChange={(e) => setFullName(e.target.value)} type='text' placeholder='نام و نام خانوادگی' />
+                                    <input onChange={(e) => setNationalCode(e.target.value)} type='text' placeholder='کدملی' />
+                                    <input onChange={(e) => setBirthDate(e.target.value)} type='text' placeholder='تاریخ تولد' />
+                                    <select onChange={(e) => setGender(e.target.value)} name="destination" id="destination" >
                                         <option value={""} selected>جنسیت</option>
                                         <option value={"male"}>آقا</option>
                                         <option value={"femail"}>خانم</option>
@@ -84,7 +102,7 @@ function BasketTemplate() {
                                         </span>
                                     </span>
                                 </div>
-                                <button className='w-[283px] h-[56px] rounded-[10px] bg-[#28A745] font-normal text-2xl text-white cursor-pointer'>
+                                <button onClick={buyHandeler} className='w-[283px] h-[56px] rounded-[10px] bg-[#28A745] font-normal text-2xl text-white cursor-pointer'>
                                     ثبت و خرید نهایی
                                 </button>
 
@@ -97,7 +115,16 @@ function BasketTemplate() {
                 </div>
 
                 :
-                <h1>Loading...</h1>}
+                <div className='flex flex-col gap-10 mt-20 justify-center items-center'>
+                    <h1 className='font-semibold text-[36px] text-[#282828]'>
+                        سبد خرید شما خالی است !
+                    </h1>
+                    <Link href="/">
+                        <button className='w-90 h-19 rounded-2xl bg-[#D8FFE1] font-semibold text-[28px] text-[#28A745] cursor-pointer'>
+                            بازگشت به صفحه  اصلی
+                        </button>
+                    </Link>
+                </div>}
 
 
 
