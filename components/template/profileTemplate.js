@@ -3,6 +3,7 @@ import Header from '@/components/header'
 import { useState } from 'react'
 import ProfilePart from '@/components/profilePart'
 import Profilebuttons from '@/components/profilebuttons'
+import ToursPartProfile from '../toursPartProfile'
 
 function ProfileTemplate() {
         const [showProfile, setProfile] = useState(true)
@@ -16,6 +17,7 @@ function ProfileTemplate() {
                 <div className='flex justify-between items-start w-[80vw]'>
                     <Profilebuttons showProfile={showProfile} showMyTours={showMyTours} showMyTransaction={showMyTransaction} setProfile={setProfile} setShowMyTours={setShowMyTours} setShowMyTransaction={setShowMyTransaction}/>
                     {showProfile && <ProfilePart />}
+                    {showMyTours && <ToursPartProfile/>}
                 </div>
             </div>
         </>
