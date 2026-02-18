@@ -35,7 +35,7 @@ function ToursPartProfile() {
                     </span>
                 </div>
 
-                <div className='flex gap-35 pr-3'>
+                <div className='flex gap-35 pr-3 pt-2 border-t border-[#00000033] '>
                     <span className='flex items-center gap-3'>
                         <h3 className='font-normal text-[14px] text-[#00000080]'> شماره تور</h3>
                         <p className='font-medium text-[14px] text-[#282828]'>۱۰۲۰۹۵۴۰۴</p>
