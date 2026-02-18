@@ -94,9 +94,9 @@ function Filter() {
                         </select>
                     </div>
 
-                    <div className='flex items-center gap-2 bg-amber -300  h-full pl-20 cursor-pointer   relative'>
+                    <div onClick={() => { setShowCalender(!showCalender) }} className='flex items-center gap-2 bg-amber -300  h-full pl-20 cursor-pointer    relative'>
                         <Image src={calenderIcon} alt='icon calender' />
-                        <button onClick={() => { setShowCalender(!showCalender) }}>تاریخ</button>
+                        <button>تاریخ</button>
                         {showCalender && <Calendar className=' absolute top-15 left-[-70]' value={value} calendar={persian} locale={persian_fa} onChange={calendarHandeler} />}
                     </div>
                     {showReset && <button className='size-10 bg-red-400 cursor-pointer text-white rounded-full' onClick={() => { router.refresh() }}>X</button>}
