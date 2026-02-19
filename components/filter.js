@@ -67,14 +67,14 @@ function Filter() {
     console.log({ filterTour, tours })
     return (
         <>
-            <div className=' flex flex-col justify-center items-center'>
+            <div className=' flex flex-col  justify-center items-center  mb-80 sm:m-0'>
                 <h2 className='font-semibold text-[28px] text-[#595959] flex gap-2 mt-5 mb-5'>
                     <span className='text-[#28A745]'>تورینو</span>
                     برگزار کننده بهترین تور های داخلی و خارجی
                 </h2>
 
-                <div className='flex justify-between items-center box-border p-1 w-218 h-18 bg-[#FFFFFF] border border-[#00000026] rounded-[20px] '>
-                    <div className='flex gap-2 bg-am ber-300  h-full pl-20'>
+                <div className='flex gap-5 sm:gap-0 flex-wrap justify-between items-center box-border p-1 w-80 sm:w-150 lg:w-218 h-18 bg-[#FFFFFF] border-none sm:border border-[#00000026] rounded-[20px] '>
+                    <div className='flex gap-2 bg-am ber-300  h-full pl-20 w-80 border sm:border-none border-[#00000026] rounded-xl sm:w-30'>
                         <Image src={originIcon} alt='icon origin' />
                         <select className='cursor-pointer' onChange={(e) => { setOrigin(e.target.value) }} name="origin" id="origin" >
                             <option value={""}>مبدا</option>
@@ -84,7 +84,7 @@ function Filter() {
                         </select>
                     </div>
 
-                    <div className='flex gap-2 border-l border-r border-[#00000026] bg-amb er-200 h-full pl-20 pr-2'>
+                    <div className='flex gap-2 border-l border-r  bg-amb er-200 h-full pl-20 pr-2 w-80 border sm:border-none border-[#00000026] rounded-xl sm:w-30'>
                         <Image src={destinationIcon} alt='icon destination' />
                         <select className='cursor-pointer' onChange={(e) => { setDestination(e.target.value) }} name="destination" id="destination">
                             <option value={""}>مقصد</option>
@@ -94,13 +94,13 @@ function Filter() {
                         </select>
                     </div>
 
-                    <div onClick={() => { setShowCalender(!showCalender) }} className='flex items-center gap-2 bg-amber -300  h-full pl-20 cursor-pointer    relative'>
+                    <div onClick={() => { setShowCalender(!showCalender) }} className='flex items-center gap-2 bg-amber -300 w-80 border sm:border-none border-[#00000026] rounded-xl sm:w-30  h-full pl-20 cursor-pointer    relative'>
                         <Image src={calenderIcon} alt='icon calender' />
                         <button>تاریخ</button>
                         {showCalender && <Calendar className=' absolute top-15 left-[-70]' value={value} calendar={persian} locale={persian_fa} onChange={calendarHandeler} />}
                     </div>
                     {showReset && <button className='size-10 bg-red-400 cursor-pointer text-white rounded-full' onClick={() => { router.refresh() }}>X</button>}
-                    <button onClick={filterHandeler} className='bg-[#28A745] w-47.5 h-12.75 rounded-2xl cursor-pointer text-[#FFFFFF] text-2xl '>جستجو</button>
+                    <button onClick={filterHandeler} className='bg-[#28A745] w-80 sm:w-47.5 h-12.75 rounded-2xl cursor-pointer text-[#FFFFFF] text-2xl '>جستجو</button>
                 </div>
 
             </div>
