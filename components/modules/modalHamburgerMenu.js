@@ -23,28 +23,23 @@ function ModalHamburgerMenu({ setShowModalHamburgerMenu }) {
                         <li className='flex gap-2 hover:text-green-600 '>
                             <Image src={home} className='size-4 ' />
                             صفحه اصلی
-
                         </li>
 
                         <li className='flex gap-2 hover:text-green-600'>
                             <Image src={routing} />
                             خدمات گردشگری
-
                         </li>
 
                         <li className='flex gap-2 hover:text-green-600'>
                             <Image src={about} />
                             درباره ما
-
                         </li>
 
                         <li className='flex gap-2 hover:text-green-600'>
                             <Image src={callIcon} />
                             تماس با ما
-
                         </li>
                     </ul>
-
                 </div>
 
 

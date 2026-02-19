@@ -14,16 +14,13 @@ import menu from '@/public/menu.svg'
 import signBTn from '@/public/signBTN.svg'
 
 function Header() {
-    // const token = getCookie("token")
-    // const phoneProfile = getCookie('phoneNumber')
     const [token, setToken] = useState(null)
     const [phoneProfile, setPhoneProfile] = useState(null)
     const [phoneNumber, setPhoneNumber] = useState("")
     const [showSignIn, setShowSignIn] = useState(false)
     const [showOTP, setShowOTP] = useState(false)
     const [showModalProfile, setShowModalProfile] = useState(false)
-    const [showModalHamburgerMenu, setShowModalHamburgerMenu] = useState(true)
-    // console.log(token, 99)
+    const [showModalHamburgerMenu, setShowModalHamburgerMenu] = useState(false)
 
 
     useEffect(() => {
@@ -36,13 +33,13 @@ function Header() {
             {showSignIn && <ModalSignIn phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} setShowSignIn={setShowSignIn} setShowOTP={setShowOTP} />}
             {showOTP && <ModalCofirmCode setShowOTP={setShowOTP} phoneNumber={phoneNumber} />}
             {showModalHamburgerMenu && <ModalHamburgerMenu setShowModalHamburgerMenu={setShowModalHamburgerMenu} />}
-            <div className='flex justify-between p-[16px_20px] pb-4 align-'>
+            <div className='flex md:hidden justify-between p-[16px_20px] pb-4 align-'>
                 <button onClick={()=> setShowModalHamburgerMenu(true)} className='cursor-pointer'>  <Image src={menu} alt='logo' /></button>
                 <button onClick={() => setShowSignIn(true)} className='cursor-pointer'>  <Image src={signBTn} alt='logo' /></button>
             </div>
 
 
-            <div className='pb-3 hidden   border-b border-[#00000029] md :flex items-center justify-center'>
+            <div className='pb-3 hidden   border-b border-[#00000029] md:flex items-center justify-center'>
                 <div className=' w-[80vw] flex justify-between'>
                     <Link href='/'>  <Image src={logo} alt='logo' /></Link>
 
