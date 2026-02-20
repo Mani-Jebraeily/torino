@@ -25,6 +25,15 @@ function Filter() {
 
     const router = useRouter()
 
+    const uniqueOrigins = Object.values(
+        tours.reduce((acc, tour) => {
+            if (!acc[tour.origin.name]) {
+                acc[tour.origin.name] = tour.origin;
+            }
+            return acc;
+        }, {})
+    );
+
 
 
     const calendarHandeler = (date) => {
@@ -78,8 +87,12 @@ function Filter() {
                         <Image src={originIcon} alt='icon origin' />
                         <select className='cursor-pointer' onChange={(e) => { setOrigin(e.target.value) }} name="origin" id="origin" >
                             <option value={""}>مبدا</option>
-                            {tours && tours.map((tour) => (
-                                <option value={tour.origin.name}>{tour.origin.nameFa}</option>
+                       
+
+                            {uniqueOrigins.map((origin) => (
+                                <option key={origin.name} value={origin.name}>
+                                    {origin.nameFa}
+                                </option>
                             ))}
                         </select>
                     </div>

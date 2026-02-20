@@ -10,7 +10,7 @@ function Information() {
     return (
         <>
             <div className='flex flex-col items-center justify-center mt-30 mb-40  '>
-                <div className='w-screen sm:w-[80vw] flex flex-col  lg:flex-row h-62.5 border border-[#00000040] rounded-[10px]'>
+                <div className='w-[90vw] sm:w-[80vw] flex flex-col  lg:flex-row h-62.5 border border-[#00000040] rounded-[10px]'>
                     <div className='w-full lg:w-[75%] h-62.5 bg-[#28A745] rounded-[10px_10px_0px_0px] lg:rounded-[10px] relative flex box-content'>
                         <Image alt='person picture' src={person} className='absolute bottom-0 left-0 w-47 sm:w-62 lg:w-75' />
                         <div className='flex flex-col justify-center items-center pr-5'>
