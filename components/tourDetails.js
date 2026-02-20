@@ -49,19 +49,19 @@ function TourDetails({ tour }) {
     return (
         <>
             <div className='bg-gray-100 w-full h-200 flex justify-center' >
-                <div className='max-w-[80vw] w-297 h-fit  h- 107 bg-[#FFFFFF] border border-[#00000033] rounded-xl mt-10'>
-                    <div className='flex bg- amber-300 box-content p-[20px_20px] overflow-hidden'>
-                        <img src={tour.image} className='rounded-xl w-75 h-50' />
+                <div className='max-w-[80vw] w-297 h-fit  h- 107 bg-[#FFFFFF]  border border-[#00000033] rounded-xl mt-10'>
+                    <div className='flex flex-col justify-around items-center  h-120 lg:h-fit lg:pb-5 pb-10 lg:p-0 lg:flex-row  box-content p-[20px_20px] overflow-hidden'>
+                        <img src={tour.image} className='rounded-xl w-[50vw] lg:w-75 h-50' />
 
-                        <div className='bg-red- 400 w-full h-50 p-[0px_20px] flex flex-col justify-between'>
+                        <div className=' w-ful l w-120  h-50 p-[0px_20px] flex flex-col items-center lg:items-start lg:justify-between '>
                             <h1 className='font-bold text-[32px]'>{tour.title}</h1>
-                            <h1 className='font-normal text-[20px]'>
+                            <h1 className='font-normal text-[20px] mb-2'>
                                 {daysCount}
                                 روز و
                                 {nightsCount}
                                 شب
                             </h1>
-                            <div className='flex *:flex gap-15 *:gap-2' >
+                            <div className='flex flex-wrap w-fit flex-row gap-5 mt-5 lg:m-0 lg:flex-row *:flex lg:gap-15 *:gap-2' >
                                 <span>
                                     <img src='/user-tick.svg' />
                                     <p>تور لیدر از مبدا</p>
@@ -78,7 +78,7 @@ function TourDetails({ tour }) {
                                 </span>
                             </div>
 
-                            <div className='flex items-center justify-between'>
+                            <div className='flex flex-row flex-wrap  justify-center lg:flex-row items-center w-[50vw] mt-5 lg:m-0   lg:w-110 lg:justify-between'>
                                 <div className='flex items-center gap-2'>
                                     <span className='font-medium text-[28px] text-[#009ECA]'>
                                         {formatFaNumber(tour.price)}
@@ -96,7 +96,7 @@ function TourDetails({ tour }) {
                         </div>
                     </div>
 
-                    <div className='flex justify-center mb-10 w-full bg-amber -300 *:flex *:flex-col *:justify-center *:items-center *:border-[#00000040] *:p-[0px_30px]'>
+                    <div className='lg:flex hidden justify-center mb-10 w-full bg-amber -300 *:flex *:flex-col *:justify-center *:items-center *:border-[#00000040] *:p-[0px_30px]'>
 
                         <div className='border-l'>
                             <div className='flex items-center gap-2 justify-cente'>
