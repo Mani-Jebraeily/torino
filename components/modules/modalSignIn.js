@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-function ModalSignIn({ setShowSignIn,setShowOTP,phoneNumber,setPhoneNumber }) {
+function ModalSignIn({ setShowSignIn,setShowOTP,phoneNumber,setPhoneNumber}) {
     const api = process.env.NEXT_PUBLIC_API_URL
 
     const loginHandeler = () => {

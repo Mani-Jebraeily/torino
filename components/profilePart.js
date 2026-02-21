@@ -5,57 +5,126 @@ import { getCookie } from 'cookies-next'
 
 function Profile() {
     const [phoneProfile, setPhoneProfile] = useState(null)
+    const [editMode, setEditMod] = useState(false)
     useEffect(() => {
         setPhoneProfile(getCookie("phoneNumber"))
     }, [])
     return (
 
-        <div>
-            <div>
-                <div className='w-[872px] h-[115px] rounded-[10px] border border-[#00000033] mb-10 '>
-                    <h1 className='font-normal text-[16px] p-3'>اطلاعات حساب کاربری</h1>
-                    <div className='flex items-center justify-around'>
-                        <div className='flex gap-5 *:font-normal *:text-[14px]'>
-                            <h2>شماره موبایل </h2>
-                            <h2>{phoneProfile}</h2>
-                        </div>
-                        <div className='flex gap-5 '>
-                            <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080]/50 font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='آدرس ایمیل' />
-                            <button className='w-[122px] h-[45px] rounded-[5px] bg-[#28A745] text-[16px] font-semibold text-[#FFFFFF] cursor-pointer'>تایید</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='w-[872px] h-[240px] rounded-[10px] border border-[#00000033] '>
-                    <h1 className='font-normal text-[16px] p-3'>اطلاعات شخصی</h1>
-                    <div className='flex items-center justify-around mb-12'>
-
-                        <div className='flex  flex-col gap-5 '>
-                            <div className='flex flex-wrap pr-2 gap-5 *:w-63.75 *:h-11.25 *:rounded-[5px] *:border *:border-[#00000080]/50 *:font-normal *:text-[#00000080] *:text-[14px] *:pr-3'>
-                                <input type='email' placeholder='نام و نام خانوادگی' />
-                                <input type='email' placeholder='کدملی' />
-                                <input type='email' placeholder='تاریخ تولد' />
-                                <select name="destination" id="destination">
-                                    <option value>جنسیت</option>
-                                    <option value={"male"}>آقا</option>
-                                    <option value={"femail"}>خانم</option>
-                                </select>
-                            </div>
-                            <div className='w-full overflow-hidden border-t border-[#00000033]'>
-                                <div className='flex items-sta ml-20  gap-3 items-center justify-end  h-15'>
-                                    <button className='w-36 h-10 rounded-[5px] bg-[#28A745] font-semibold text-[16px] text-white cursor-pointer '>تایید</button>
-                                    <button className='w-36 h-10 rounded-[5px] border-2 border-[#28A745]  font-semibold text-[16px] text-[#28A745] cursor-pointer '>انصراف</button>
+        <>
+            {editMode &&
+                <div>
+                    <div>
+                        <div className='w-[872px] h-[115px] rounded-[10px] border border-[#00000033] mb-10 '>
+                            <h1 className='font-normal text-[16px] p-3'>اطلاعات حساب کاربری</h1>
+                            <div className='flex items-center justify-around'>
+                                <div className='flex gap-5 *:font-normal *:text-[14px]'>
+                                    <h2>شماره موبایل </h2>
+                                    <h2>{phoneProfile}</h2>
+                                </div>
+                                <div className='flex gap-5 '>
+                                    <input className='w-[255px] h-[45px] rounded-[5px] border border-[#00000080]/50 font-normal text-[#00000080] text-[14px] pr-3' type='email' placeholder='آدرس ایمیل' />
+                                    <button className='w-[122px] h-[45px] rounded-[5px] bg-[#28A745] text-[16px] font-semibold text-[#FFFFFF] cursor-pointer'>تایید</button>
                                 </div>
                             </div>
-
                         </div>
+
+                        <div className='w-[872px] h-[240px] rounded-[10px] border border-[#00000033] '>
+                            <h1 className='font-normal text-[16px] p-3'>اطلاعات شخصی</h1>
+                            <div className='flex items-center justify-around mb-12'>
+
+                                <div className='flex  flex-col gap-5 '>
+                                    <div className='flex flex-wrap pr-2 gap-5 *:w-63.75 *:h-11.25 *:rounded-[5px] *:border *:border-[#00000080]/50 *:font-normal *:text-[#00000080] *:text-[14px] *:pr-3'>
+                                        <input type='email' placeholder='نام و نام خانوادگی' />
+                                        <input type='email' placeholder='کدملی' />
+                                        <input type='email' placeholder='تاریخ تولد' />
+                                        <select name="destination" id="destination">
+                                            <option value>جنسیت</option>
+                                            <option value={"male"}>آقا</option>
+                                            <option value={"femail"}>خانم</option>
+                                        </select>
+                                    </div>
+                                    <div className='w-full overflow-hidden border-t border-[#00000033]'>
+                                        <div className='flex items-sta ml-20  gap-3 items-center justify-end  h-15'>
+                                            <button className='w-36 h-10 rounded-[5px] bg-[#28A745] font-semibold text-[16px] text-white cursor-pointer '>تایید</button>
+                                            <button className='w-36 h-10 rounded-[5px] border-2 border-[#28A745]  font-semibold text-[16px] text-[#28A745] cursor-pointer '>انصراف</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            }
+
+            <div>
+                <div className='w-[872px] h-[115px] flex flex-col justify-around rounded-xl  border border-[#00000033] mb-10 '>
+                    <h2 className='font-normal text-[16px] text-[#000000]  pt-2 pr-3 bg- blue-500 '>
+                        اطلاعات حساب کاربری
+                    </h2>
+
+                    <div className='flex justify-around'>
+                        <span className='flex gap-3'>
+                            <h3>
+                                شماره موبایل
+                            </h3>
+                            <h3>
+                                {phoneProfile}
+                            </h3>
+                        </span>
+
+                        <span className='flex gap-3'>
+                            <h3>
+                                ایمیل
+                            </h3>
+                            <h3>
+                                -
+                            </h3>
+                        </span>
                     </div>
                 </div>
 
+                <div className='w-[872px] h-[115px] flex flex-col justify-around rounded-xl  border border-[#00000033] mb-10 '>
+                    <h2 className='font-normal text-[16px] text-[#000000]  pt-2 pr-3 bg- blue-500 '>
+                        اطلاعات شخصی
+                    </h2>
 
+                    <div className='flex justify-around'>
+                        <span className='flex gap-3'>
+                            <h3>
+                                شماره موبایل
+                            </h3>
+                            <h3>
+                                {phoneProfile}
+                            </h3>
+                        </span>
+
+                        <span className='flex gap-3'>
+                            <h3>
+                                ایمیل
+                            </h3>
+                            <h3>
+                                -
+                            </h3>
+                        </span>
+                    </div>
+
+
+                </div>
 
             </div>
-        </div>
+
+
+
+
+
+        </>
+
+
 
     )
 }

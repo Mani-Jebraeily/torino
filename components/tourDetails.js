@@ -6,10 +6,11 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
+import ModalSignIn from './modules/modalSignIn'
 
 
 function TourDetails({ tour }) {
-     const router = useRouter()
+    const router = useRouter()
     const api = process.env.NEXT_PUBLIC_API_URL
     const startDay = new Date(tour.startDate).getTime()
     const endtDay = new Date(tour.endDate).getTime()
@@ -18,6 +19,7 @@ function TourDetails({ tour }) {
     const nightsCount = formatFaNumber(Math.floor(totalDays / msPerDay));
     const daysCount = formatFaNumber(Math.floor(totalDays / msPerDay) + 1);
     const [token, setToken] = useState(null)
+    const [showSignIn, setShowSignIn] = useState(false)
 
 
 
@@ -39,15 +41,19 @@ function TourDetails({ tour }) {
                     Authorization: `Bearer ${token}`,
                 },
             }
-        ).then((res)=>{
-            if(res.status===201){
-                    router.push("/basket")
+        ).then((res) => {
+            if (res.status === 201) {
+                router.push("/basket")
             }
+        }).catch((e) => {
+            console.log(e.message)
+            setShowSignIn(true)
         })
 
     }
     return (
         <>
+            {showSignIn &&<ModalSignIn setShowSignIn={setShowSignIn} />}
             <div className='bg-gray-100 w-full h-200 flex justify-center' >
                 <div className='max-w-[80vw] w-297 h-fit  h- 107 bg-[#FFFFFF]  border border-[#00000033] rounded-xl mt-10'>
                     <div className='flex flex-col justify-around items-center  h-120 lg:h-fit lg:pb-5 pb-10 lg:p-0 lg:flex-row  box-content p-[20px_20px] overflow-hidden'>
